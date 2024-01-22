@@ -1,165 +1,18 @@
 <html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="IE=edge" http-equiv="X-UA-Compatible"><meta content="width=device-width,initial-scale=1" name="viewport"><title>网盘资源分享</title><link href="./static/logo.png" rel="icon"><link href="./static/main.css" rel="stylesheet"><link href="./static/list.css" rel="stylesheet"><script type="text/javascript" async="" src="./static/analytics.js"></script><script src="./static/jquery.min.js"></script><style type="text/css">
-    @keyframes caretBlink {
-        from { opacity: 1.0; }
-        to { opacity: 0.0; }
-    }
-    
-    @keyframes rotateSpinner {
-        from {
-            transform:rotate(0deg);
-        }
-        to {
-            transform:rotate(360deg);
-        }
-    }
-    
-    #text-tool-caret {
-        animation-name: caretBlink;  
-        animation-iteration-count: infinite;  
-        animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-        animation-duration: 1s; 
-    }
-    
-    #en-markup-loading-spinner {
-        position: absolute;
-        top: calc(50% - 16px);
-        left: calc(50% - 16px);
-        width: 32px;
-        height: 32px;
-    }
-    
-    #en-markup-loading-spinner img {
-        position: relative;
-        top: 0px;
-        left: 0px;
-        animation-name: rotateSpinner;
-        animation-duration: 0.6s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-    </style><style type="text/css">/* Copyright 2014-present Evernote Corporation. All rights reserved. */
-    .skitchToastBoxContainer {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        top: 30px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        pointer-events: none;
-    }
-    
-    .skitchToastBox {
-        width: 200px;
-        height: 16px;
-        padding: 12px;
-        background-color: rgba(47, 55, 61, 0.95);
-        border-radius: 4px;
-        color: white;
-        cursor: default;
-        font-size: 10pt;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.32);
-        font-family: 'Soleil', Helvetica, Arial, sans-serif;
-        border: 2px rgba(255, 255, 255, 0.38) solid;
-    }
-    
-    .lang-zh-cn .skitchToastBox {
-        font-family: '微软雅黑', 'Microsoft YaHei', SimSun,
-            '&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic', 'Soleil',
-            Helvetica, Arial, sans-serif;
-    }
-    
-    .lang-ja-jp .skitchToastBox {
-        font-family: '&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic',
-            '微软雅黑', 'Microsoft YaHei', SimSun, 'Soleil', Helvetica, Arial,
-            sans-serif;
-    }
-    
-    .skitchToast {
-        padding-left: 20px;
-        padding-right: 20px;
-        display: inline-block;
-        height: 10px;
-        color: #f1f5f8;
-        text-align: center;
-    }
-    
-    .skitchVisible {
-        /* Don't remove this class it's a hack used by the Evernote Clipper */
-    }
-    </style>
-    <style type="text/css">/* Copyright 2019-present Evernote Corporation. All rights reserved. */
-    
-    #en-markup-disabled {
-        position: fixed;
-        z-index: 9999;
-        width: 100%;
-        height: 100%;
-        top: 0px;
-        left: 0px;
-        cursor: default;
-        -webkit-user-select: none;
-    }
-    
-    #en-markup-alert-container {
-        position: absolute;
-        z-index: 9999;
-        width: 450px;
-        left: calc(50% - 225px);
-        top: calc(50% - 85px);
-        background-color: white;
-        box-shadow: 0 2px 7px 1px rgba(0,0,0,0.35);
-        -webkit-user-select: none;
-    }
-    
-    #en-markup-alert-container .cell-2 {
-        position: relative;
-        float: left;
-        width: 345px;
-        margin-top: 29px;
-        margin-bottom: 20px;
-    }
-    
-    #en-markup-alert-container .cell-2 .cell-2-title {
-        margin-bottom: 5px;
-        padding-right: 30px;
-        font-size: 12pt;
-        font-family: Tahoma, Arial;
-    }
-    
-    #en-markup-alert-container .cell-2 .cell-2-message {
-        padding-right: 30px;
-        font-size: 9.5pt;
-        font-family: Tahoma, Arial;
-    }
-    
-    #en-markup-alert-container .cell-3 {
-        position: relative;
-        width: 450px;
-        height: 60px;
-        float: left;
-        background-color: rgb(240,240,240);
-    }
-    
-    #en-markup-alert-container .cell-3 button {
-        position: absolute;
-        top: 12px;
-        right: 15px;
-        width: 110px;
-        height: 36px;
-    }
-    
-    #en-markup-alert-container .cell-3 button.alt-button {
-        position: absolute;
-        top: 12px;
-        right: 140px;
-        width: 110px;
-        height: 36px;
-    }
     </style></head>
-    <body><div id="app"><div class="app"><div class="header-wrap"><header class="header"><div class="header-inner"><div class="left"><a class="router-link-active" href="/" title="首页"><div class="logo-wrap"><img class="logo" src="./static/logo.png" alt="学霸盘"><h2>网盘资源分享</h2></div></a><div class="form-wrap"></div></div></div></header></div><div class="result-page"><div class="main"><div class="search-result"><div class="result-inner"><div class="result-wrap"><div class="resource-item-wrap valid"><div class="resource-item"><img class="filetype" src="./static/dir.png"><div class="resource-info"><h3 class="resource-title">RAZ</h3><div class="detail-wrap"><p class="detail-item-wrap"><span class="detail-item-title">小学学习助手</span></p></div></div><div class="other-info"><p class="time">2023-11-09</p></div></div></div></div>
-        
-        </div></div></div></div></div>
-        
-        <footer class="footer"><div class="copyright-wrap"><p>@2010 - 2024 <a href="/" title="首页">网盘分享</a></p></div></footer></div>
+    <body><div id="app"><div class="app"><div class="header-wrap"><header class="header"><div class="header-inner"><div class="left"><a class="router-link-active" href="/" title="首页"><div class="logo-wrap"><img class="logo" src="./static/logo.png" alt="学霸盘"><h2>网盘资源分享</h2></div></a><div class="form-wrap"></div></div></div></header></div><div class="result-page"><div class="main"><div class="search-result"><div class="result-inner"><div class="result-wrap">
+
+        <div class="resource-item-wrap valid"><div class="resource-item"><img class="filetype" src="./static/dir.png"><div class="resource-info"><h3 class="resource-title">RAZ</h3><div class="detail-wrap"><p class="detail-item-wrap"><span class="detail-item-title">小学学习助手</span></p></div></div><div class="other-info"><p class="time">2023-11-09</p></div></div></div>
+
+        <div class="resource-item-wrap valid"><div class="resource-item"><img class="filetype" src="./static/dir.png"><div class="resource-info"><h3 class="resource-title">Oxford_Magic_Key牛津树动画片</h3>
+            <div class="detail-wrap">https://pan.baidu.com/s/1_G22cCOR4g1gLbtAbghwbw</div>
+            <div class="detail-wrap"><a href='#' onclick='document.getElementById("tt1").select();document.execCommand("Copy")'>复制网盘地址</a></div>
+            <input id="tt1" style="opacity: 0;" value="https://pan.baidu.com/s/1_G22cCOR4g1gLbtAbghwbw"/>
+            <div class="other-info"><p class="time">2023-11-09</p></div></div></div>
     
-    <style id="igor_ext_nofollow">a[rel~='nofollow'],a[rel~='sponsored'],a[rel~='ugc']{outline:.14em dotted red !important;outline-offset:.2em;}a[rel~='nofollow'] img,a[rel~='sponsored'] img,a[rel~='ugc'] img{outline:2px dotted red !important;outline-offset:.2em;}</style></body></html>
+    </div>
+        
+    </div></div></div></div></div>
+        
+    <footer class="footer"><div class="copyright-wrap"><p>@2010 - 2024 <a href="/" title="首页">网盘分享</a></p></div></footer></div>
+</body></html>
